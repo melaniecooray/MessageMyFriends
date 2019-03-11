@@ -7,6 +7,7 @@ target 'MessageMyFriends' do
 
   # Pods for MessageMyFriends
   pod 'Firebase/Core'
+  pod 'Firebase/Auth'
 
   target 'MessageMyFriendsUITests' do
     inherit! :search_paths
