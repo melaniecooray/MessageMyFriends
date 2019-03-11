@@ -14,7 +14,7 @@
 		7B5AFE682237157B00B6168B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7B5AFE672237157B00B6168B /* Assets.xcassets */; };
 		7B5AFE6B2237157B00B6168B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B5AFE692237157B00B6168B /* LaunchScreen.storyboard */; };
 		7B5AFE762237157B00B6168B /* MessageMyFriendsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5AFE752237157B00B6168B /* MessageMyFriendsUITests.swift */; };
-		7B5AFE812237187700B6168B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7B5AFE802237187700B6168B /* GoogleService-Info.plist */; };
+		7B5AFE8422371DE000B6168B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7B5AFE8322371DE000B6168B /* GoogleService-Info.plist */; };
 		AF0EFA62B8CEC821EEC8DA8A /* Pods_MessageMyFriendsUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C151E065BA09A310FBDF6380 /* Pods_MessageMyFriendsUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -42,7 +42,8 @@
 		7B5AFE712237157B00B6168B /* MessageMyFriendsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MessageMyFriendsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B5AFE752237157B00B6168B /* MessageMyFriendsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageMyFriendsUITests.swift; sourceTree = "<group>"; };
 		7B5AFE772237157B00B6168B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7B5AFE802237187700B6168B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		7B5AFE8222371D3F00B6168B /* MessageMyFriends.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MessageMyFriends.entitlements; sourceTree = "<group>"; };
+		7B5AFE8322371DE000B6168B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		94A003F0A5A52E6D651E34A4 /* Pods-MessageMyFriendsUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MessageMyFriendsUITests.release.xcconfig"; path = "Target Support Files/Pods-MessageMyFriendsUITests/Pods-MessageMyFriendsUITests.release.xcconfig"; sourceTree = "<group>"; };
 		AAF3AEB146399F8AD367526C /* Pods-MessageMyFriends.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MessageMyFriends.debug.xcconfig"; path = "Target Support Files/Pods-MessageMyFriends/Pods-MessageMyFriends.debug.xcconfig"; sourceTree = "<group>"; };
 		C151E065BA09A310FBDF6380 /* Pods_MessageMyFriendsUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MessageMyFriendsUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -91,13 +92,14 @@
 		7B5AFE5F2237157700B6168B /* MessageMyFriends */ = {
 			isa = PBXGroup;
 			children = (
+				7B5AFE8222371D3F00B6168B /* MessageMyFriends.entitlements */,
 				7B5AFE602237157700B6168B /* AppDelegate.swift */,
 				7B5AFE622237157700B6168B /* ViewController.swift */,
 				7B5AFE642237157700B6168B /* Main.storyboard */,
 				7B5AFE672237157B00B6168B /* Assets.xcassets */,
 				7B5AFE692237157B00B6168B /* LaunchScreen.storyboard */,
 				7B5AFE6C2237157B00B6168B /* Info.plist */,
-				7B5AFE802237187700B6168B /* GoogleService-Info.plist */,
+				7B5AFE8322371DE000B6168B /* GoogleService-Info.plist */,
 			);
 			path = MessageMyFriends;
 			sourceTree = "<group>";
@@ -128,7 +130,6 @@
 				421DEEE395006332326121A8 /* Pods-MessageMyFriendsUITests.debug.xcconfig */,
 				94A003F0A5A52E6D651E34A4 /* Pods-MessageMyFriendsUITests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -185,6 +186,17 @@
 				TargetAttributes = {
 					7B5AFE5C2237157700B6168B = {
 						CreatedOnToolsVersion = 10.1;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.Push = {
+								enabled = 1;
+							};
+							com.apple.SafariKeychain = {
+								enabled = 1;
+							};
+						};
 					};
 					7B5AFE702237157B00B6168B = {
 						CreatedOnToolsVersion = 10.1;
@@ -219,7 +231,7 @@
 				7B5AFE6B2237157B00B6168B /* LaunchScreen.storyboard in Resources */,
 				7B5AFE682237157B00B6168B /* Assets.xcassets in Resources */,
 				7B5AFE662237157700B6168B /* Main.storyboard in Resources */,
-				7B5AFE812237187700B6168B /* GoogleService-Info.plist in Resources */,
+				7B5AFE8422371DE000B6168B /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -472,6 +484,7 @@
 			baseConfigurationReference = AAF3AEB146399F8AD367526C /* Pods-MessageMyFriends.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = MessageMyFriends/MessageMyFriends.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Y2JVY29H4R;
 				INFOPLIST_FILE = MessageMyFriends/Info.plist;
@@ -491,6 +504,7 @@
 			baseConfigurationReference = 18C7369A3554995178340DF1 /* Pods-MessageMyFriends.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = MessageMyFriends/MessageMyFriends.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Y2JVY29H4R;
 				INFOPLIST_FILE = MessageMyFriends/Info.plist;
