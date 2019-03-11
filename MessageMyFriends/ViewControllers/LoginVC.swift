@@ -44,8 +44,24 @@ class LoginVC: UIViewController {
         submitButton.backgroundColor = .black
         submitButton.titleLabel?.font = UIFont(name: "Avenir", size: 30)
         submitButton.layer.cornerRadius = 14
-        //submitButton.addTarget(self, action: #selector(openLoginVC), for: .touchUpInside)
+        submitButton.addTarget(self, action: #selector(toHomeVC), for: .touchUpInside)
         view.addSubview(submitButton)
+    }
+    
+    @objc func toHomeVC() {
+        //the commented out code is stuff i used in mdbsocials to verify email (obv we can change it for this)
+        /*Database.database().reference().child("user").child(username.text!).observeSingleEvent(of: .value) { (snap) in
+            guard let data = snap.value as? [String: Any?] else {return}
+            
+            let emailstring = data["email"] as! String
+            Auth.auth().signIn(withEmail: emailstring, password: self.password.text!) { (auth, err) in
+                if let error = err {
+                    print(error)
+                    return
+                }*/
+                self.performSegue(withIdentifier: "toHomeVCFromLogin", sender: self)
+            /*}
+        }*/
     }
     
 }

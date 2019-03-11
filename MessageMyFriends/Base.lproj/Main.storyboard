@@ -39,6 +39,7 @@
                     <navigationItem key="navigationItem" id="t4Z-WE-Ien"/>
                     <connections>
                         <segue destination="mh6-ju-Aad" kind="show" identifier="toLoginVC" id="pp6-83-EjC"/>
+                        <segue destination="5kp-x1-t6d" kind="show" identifier="toHomeVCFromLaunch" id="RyB-AL-lKQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -55,10 +56,31 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="adj-xQ-Dac"/>
                     </view>
+                    <connections>
+                        <segue destination="5kp-x1-t6d" kind="show" identifier="toHomeVCFromLogin" id="3I5-9c-cOh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KlI-bh-NXL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="914" y="-182"/>
+            <point key="canvasLocation" x="916" y="-247"/>
+        </scene>
+        <!--HomeVC-->
+        <scene sceneID="qJU-iL-c9p">
+            <objects>
+                <viewController id="5kp-x1-t6d" customClass="HomeVC" customModule="MessageMyFriends" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="7ZY-fI-aGm">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="RFk-Pb-Bcm"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OUn-fl-LzD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1730" y="517"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="3I5-9c-cOh"/>
+    </inferredMetricsTieBreakers>
 </document>
