@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class LoginVC: UIViewController {
     
@@ -55,12 +56,36 @@ class LoginVC: UIViewController {
         submitButton.backgroundColor = .black
         submitButton.titleLabel?.font = UIFont(name: "Avenir", size: 30)
         submitButton.layer.cornerRadius = 14
-        //submitButton.addTarget(self, action: #selector(openLoginVC), for: .touchUpInside)
+        submitButton.addTarget(self, action: #selector(sendEmailLink), for: .touchUpInside)
         view.addSubview(submitButton)
     }
     
     @objc func backToLaunchVC() {
         performSegue(withIdentifier: "toLaunchVC", sender: self)
+    }
+    
+    @objc func sendEmailLink() {
+        let actionCodeSettings = ActionCodeSettings()
+        actionCodeSettings.url = URL(string: "https://messagemyfriends-d90ba.firebaseapp.com")
+        actionCodeSettings.handleCodeInApp = true
+        actionCodeSettings.setIOSBundleID(Bundle.main.bundleIdentifier!)
+        actionCodeSettings.dynamicLinkDomain = "messagemyfriends.page.link"
+        Auth.auth().sendSignInLink(toEmail: email.text!, actionCodeSettings: actionCodeSettings) { error in
+            if let error = error {
+                self.showError(title: "Error", message: "Couldn't send email")
+                print(error)
+                return
+            }
+            UserDefaults.standard.set(self.email.text!, forKey: "Email")
+            self.showError(title: "Success!", message: "Check your email for the link")
+        }
+    }
+    
+    func showError(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let defaultAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alert.addAction(defaultAction)
+        self.present(alert, animated: true, completion: nil)
     }
     
 }
