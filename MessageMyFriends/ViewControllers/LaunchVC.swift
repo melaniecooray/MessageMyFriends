@@ -43,5 +43,7 @@ class LaunchVC: UIViewController {
         performSegue(withIdentifier: "toLoginVC", sender: self)
     }
 
+    //func to check if they r logged in and automatically go to HomeVC
+    
 }
 
