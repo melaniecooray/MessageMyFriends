@@ -74,13 +74,31 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="RFk-Pb-Bcm"/>
                     </view>
+                    <connections>
+                        <segue destination="HfO-MS-XtU" kind="show" identifier="toConfig" id="Lzm-HR-c9U"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OUn-fl-LzD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1730" y="517"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="6oQ-Fe-oBr">
+            <objects>
+                <viewController id="HfO-MS-XtU" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="NvI-Rw-TNI">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="Gac-wk-ZHN"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8E4-mO-buH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2579" y="-232"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="3I5-9c-cOh"/>
+        <segue reference="RyB-AL-lKQ"/>
     </inferredMetricsTieBreakers>
 </document>

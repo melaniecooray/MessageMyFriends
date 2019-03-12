@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import FirebaseAuth
 
 class LoginVC: UIViewController {
     
@@ -15,9 +16,13 @@ class LoginVC: UIViewController {
     var email : UITextField!
     var submitButton : UIButton!
     
+    let atCharacter: Character = "@"
+    let periodCharacter: Character = "."
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupScreen()
+        addTapDismiss()
         // Do any additional setup after loading the view, typically from a nib.
     }
     
@@ -66,6 +71,12 @@ class LoginVC: UIViewController {
     }
     
     @objc func sendEmailLink() {
+        print("please")
+        if !email.text!.contains(atCharacter) || !email.text!.contains(periodCharacter) || email.text!.count < 5 {
+            showError(title: "Error", message: "Email is not valid")
+            return
+        }
+        
         let actionCodeSettings = ActionCodeSettings()
         actionCodeSettings.url = URL(string: "https://messagemyfriends-d90ba.firebaseapp.com")
         actionCodeSettings.handleCodeInApp = true
@@ -77,7 +88,7 @@ class LoginVC: UIViewController {
                 print(error)
                 return
             }
-            UserDefaults.standard.set(self.email.text!, forKey: "Email")
+            UserDefaults.standard.set(self.email.text!, forKey: "email")
             self.showError(title: "Success!", message: "Check your email for the link")
         }
     }
@@ -87,6 +98,13 @@ class LoginVC: UIViewController {
         let defaultAction = UIAlertAction(title: "OK", style: .default, handler: nil)
         alert.addAction(defaultAction)
         self.present(alert, animated: true, completion: nil)
+    }
+    
+    func addTapDismiss() {
+        view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard)))
+    }
+    @objc func dismissKeyboard() {
+        email.resignFirstResponder()
     }
     
 }
