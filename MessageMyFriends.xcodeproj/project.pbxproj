@@ -364,11 +364,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				7B5AFE632237157700B6168B /* LaunchVC.swift in Sources */,
-<<<<<<< HEAD
 				7B5AFE862237668800B6168B /* AppDelegate-linkhandling.swift in Sources */,
-=======
 				0C2502BD22372C060078ED6C /* HomeVC.swift in Sources */,
->>>>>>> 951f804ea2dd43cc90c85143d7cfd05c77aa9054
 				0C2502BB2237249A0078ED6C /* LoginVC.swift in Sources */,
 				7B5AFE612237157700B6168B /* AppDelegate.swift in Sources */,
 			);
