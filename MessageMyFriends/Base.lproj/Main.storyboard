@@ -76,6 +76,7 @@
                     </view>
                     <connections>
                         <segue destination="HfO-MS-XtU" kind="show" identifier="toConfig" id="Lzm-HR-c9U"/>
+                        <segue destination="yI4-SW-aS3" kind="show" identifier="addFriend" id="zOS-AH-f3F"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OUn-fl-LzD" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -83,9 +84,24 @@
             <point key="canvasLocation" x="1730" y="517"/>
         </scene>
         <!--View Controller-->
+        <scene sceneID="UYN-lK-C8T">
+            <objects>
+                <viewController id="yI4-SW-aS3" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="b16-NU-rsE">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="aeh-iB-K7a"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uf7-qf-EMM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2716" y="517"/>
+        </scene>
+        <!--Config UserVC-->
         <scene sceneID="6oQ-Fe-oBr">
             <objects>
-                <viewController id="HfO-MS-XtU" sceneMemberID="viewController">
+                <viewController id="HfO-MS-XtU" customClass="ConfigUserVC" customModule="MessageMyFriends" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="NvI-Rw-TNI">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

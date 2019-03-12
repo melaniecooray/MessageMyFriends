@@ -32,6 +32,7 @@ class HomeVC: UIViewController {
     }
     
     func setupNavBar() {
+        self.navigationController?.navigationBar.isHidden = false
         signOutButton = UIBarButtonItem(title: "Sign Out", style: .plain, target: self, action: #selector(signOut))
         self.navigationItem.setLeftBarButton(signOutButton, animated: true)
         addFriendButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addFriend))
@@ -53,7 +54,7 @@ class HomeVC: UIViewController {
     }
     
     @objc func addFriend() {
-        
+        performSegue(withIdentifier: "addFriend", sender: self)
     }
 
 }

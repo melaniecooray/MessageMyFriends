@@ -20,6 +20,7 @@
 		7B5AFE862237668800B6168B /* AppDelegate-linkhandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5AFE852237668800B6168B /* AppDelegate-linkhandling.swift */; };
 		7B5AFE882237693A00B6168B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5AFE872237693A00B6168B /* User.swift */; };
 		7B5AFE8A22377F6700B6168B /* ConfigUserVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5AFE8922377F6700B6168B /* ConfigUserVC.swift */; };
+		7B5AFE8C2237842800B6168B /* AddFriendVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5AFE8B2237842800B6168B /* AddFriendVC.swift */; };
 		AF0EFA62B8CEC821EEC8DA8A /* Pods_MessageMyFriendsUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C151E065BA09A310FBDF6380 /* Pods_MessageMyFriendsUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -54,6 +55,7 @@
 		7B5AFE852237668800B6168B /* AppDelegate-linkhandling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate-linkhandling.swift"; sourceTree = "<group>"; };
 		7B5AFE872237693A00B6168B /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = User.swift; path = "MessageMyFriends/App Delegates/User.swift"; sourceTree = SOURCE_ROOT; };
 		7B5AFE8922377F6700B6168B /* ConfigUserVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigUserVC.swift; sourceTree = "<group>"; };
+		7B5AFE8B2237842800B6168B /* AddFriendVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFriendVC.swift; sourceTree = "<group>"; };
 		94A003F0A5A52E6D651E34A4 /* Pods-MessageMyFriendsUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MessageMyFriendsUITests.release.xcconfig"; path = "Target Support Files/Pods-MessageMyFriendsUITests/Pods-MessageMyFriendsUITests.release.xcconfig"; sourceTree = "<group>"; };
 		AAF3AEB146399F8AD367526C /* Pods-MessageMyFriends.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MessageMyFriends.debug.xcconfig"; path = "Target Support Files/Pods-MessageMyFriends/Pods-MessageMyFriends.debug.xcconfig"; sourceTree = "<group>"; };
 		C151E065BA09A310FBDF6380 /* Pods_MessageMyFriendsUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MessageMyFriendsUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -106,10 +108,11 @@
 		0C2502B9223722BE0078ED6C /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				7B5AFE622237157700B6168B /* LaunchVC.swift */,
-				0C2502BA2237249A0078ED6C /* LoginVC.swift */,
-				0C2502BC22372C060078ED6C /* HomeVC.swift */,
-				7B5AFE8922377F6700B6168B /* ConfigUserVC.swift */,
+				7B5AFE91223784E100B6168B /* AddFriendVC */,
+				7B5AFE90223784D500B6168B /* ConfigUserVC */,
+				7B5AFE8F223784CC00B6168B /* LoginVC */,
+				7B5AFE8E223784C000B6168B /* LaunchVC */,
+				7B5AFE8D223784AC00B6168B /* HomeVC */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -158,6 +161,46 @@
 				7B5AFE772237157B00B6168B /* Info.plist */,
 			);
 			path = MessageMyFriendsUITests;
+			sourceTree = "<group>";
+		};
+		7B5AFE8D223784AC00B6168B /* HomeVC */ = {
+			isa = PBXGroup;
+			children = (
+				0C2502BC22372C060078ED6C /* HomeVC.swift */,
+			);
+			path = HomeVC;
+			sourceTree = "<group>";
+		};
+		7B5AFE8E223784C000B6168B /* LaunchVC */ = {
+			isa = PBXGroup;
+			children = (
+				7B5AFE622237157700B6168B /* LaunchVC.swift */,
+			);
+			path = LaunchVC;
+			sourceTree = "<group>";
+		};
+		7B5AFE8F223784CC00B6168B /* LoginVC */ = {
+			isa = PBXGroup;
+			children = (
+				0C2502BA2237249A0078ED6C /* LoginVC.swift */,
+			);
+			path = LoginVC;
+			sourceTree = "<group>";
+		};
+		7B5AFE90223784D500B6168B /* ConfigUserVC */ = {
+			isa = PBXGroup;
+			children = (
+				7B5AFE8922377F6700B6168B /* ConfigUserVC.swift */,
+			);
+			path = ConfigUserVC;
+			sourceTree = "<group>";
+		};
+		7B5AFE91223784E100B6168B /* AddFriendVC */ = {
+			isa = PBXGroup;
+			children = (
+				7B5AFE8B2237842800B6168B /* AddFriendVC.swift */,
+			);
+			path = AddFriendVC;
 			sourceTree = "<group>";
 		};
 		7E1936B8E82D31A0379F5979 /* Frameworks */ = {
@@ -375,6 +418,7 @@
 				7B5AFE8A22377F6700B6168B /* ConfigUserVC.swift in Sources */,
 				0C2502BD22372C060078ED6C /* HomeVC.swift in Sources */,
 				0C2502BB2237249A0078ED6C /* LoginVC.swift in Sources */,
+				7B5AFE8C2237842800B6168B /* AddFriendVC.swift in Sources */,
 				7B5AFE612237157700B6168B /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
