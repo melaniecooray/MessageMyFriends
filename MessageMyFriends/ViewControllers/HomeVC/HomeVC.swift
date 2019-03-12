@@ -19,7 +19,7 @@ class HomeVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        checkUser()
+        //checkUser()
         setupNavBar()
         setupScreen()
         // Do any additional setup after loading the view, typically from a nib.

@@ -9,6 +9,10 @@
 import UIKit
 
 class AddFriendVC: UIViewController {
+    
+    var tableView: UITableView!
+    
+    var users: [User]!
 
     override func viewDidLoad() {
         super.viewDidLoad()
