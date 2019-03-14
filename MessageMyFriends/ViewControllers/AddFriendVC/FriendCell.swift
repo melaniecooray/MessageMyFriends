@@ -16,7 +16,7 @@ class FriendCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        name = UILabel(frame: CGRect(x: 20, y: 20, width: contentView.frame.width, height: contentView.frame.height))
+        name = UILabel(frame: CGRect(x: 20, y: 0, width: contentView.frame.width, height: contentView.frame.height))
         name.font = UIFont(name: "Avenir-Light", size: 15)
         contentView.addSubview(name)
         

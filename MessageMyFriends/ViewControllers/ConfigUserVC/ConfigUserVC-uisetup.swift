@@ -33,7 +33,7 @@ extension ConfigUserVC {
     }
     
     func setupUpdateButton() {
-        updateButton = UIButton(frame: CGRect(x: 0, y: 0, width: view.frame.width/2, height: 100))
+        updateButton = UIButton(frame: CGRect(x: 0, y: 0, width: view.frame.width/2, height: 50))
         updateButton.center = CGPoint(x: view.frame.width/2, y: lastNameTextField.frame.maxY + 100)
         updateButton.setTitle("Update", for: .normal)
         updateButton.setTitleColor(UIColor.white, for: .normal)

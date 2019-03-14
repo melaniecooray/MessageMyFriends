@@ -8,6 +8,7 @@
 
 import UIKit
 import MapKit
+import Firebase
 
 class HomeVC: UIViewController {
     
@@ -40,6 +41,8 @@ class HomeVC: UIViewController {
         }
         //initUI()
         setupNavBar()
+        let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(longPress))
+        self.view.addGestureRecognizer(longPressRecognizer)
     }
     
     func createUser() {
@@ -66,7 +69,16 @@ class HomeVC: UIViewController {
     }
     
     @objc func signOut() {
-        
+        do {
+            try Auth.auth().signOut()
+        } catch let signOutError as NSError {
+            print ("Error signing out: %@", signOutError)
+            let alertController = UIAlertController(title: "Error Logging Out", message:
+                signOutError.debugDescription, preferredStyle: UIAlertController.Style.alert)
+            alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertAction.Style.default,handler: nil))
+            self.present(alertController, animated: true, completion: nil)
+        }
+        performSegue(withIdentifier: "signOut", sender: nil)
     }
     
     @objc func addFriend() {
@@ -77,6 +89,8 @@ class HomeVC: UIViewController {
         print("preparing")
         if let resultVC = segue.destination as? ConfigUserVC {
             resultVC.user = user
+        } else if let resultVC = segue.destination as? AddFriendVC {
+            resultVC.currentUser = user
         }
     }
     
@@ -92,6 +106,7 @@ class HomeVC: UIViewController {
             print(frs)
             self.friends = frs
             self.initUI()
+            return
         }
     }
 

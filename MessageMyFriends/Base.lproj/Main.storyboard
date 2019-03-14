@@ -77,26 +77,46 @@
                     <connections>
                         <segue destination="yI4-SW-aS3" kind="show" identifier="addFriend" id="zOS-AH-f3F"/>
                         <segue destination="HfO-MS-XtU" kind="show" identifier="toConfig" id="5ob-zt-F3w"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="signOut" id="Zh8-VF-3Ae"/>
+                        <segue destination="FJ7-wY-JxR" kind="show" identifier="toChat" id="lV8-1Y-Y1Z"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OUn-fl-LzD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1730" y="517"/>
         </scene>
-        <!--View Controller-->
+        <!--Add FriendVC-->
         <scene sceneID="UYN-lK-C8T">
             <objects>
-                <viewController id="yI4-SW-aS3" sceneMemberID="viewController">
+                <viewController id="yI4-SW-aS3" customClass="AddFriendVC" customModule="MessageMyFriends" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="b16-NU-rsE">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="aeh-iB-K7a"/>
                     </view>
+                    <connections>
+                        <segue destination="5kp-x1-t6d" kind="show" identifier="addedFriend" id="CEo-Fm-MEc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uf7-qf-EMM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2716" y="517"/>
+        </scene>
+        <!--ChatVC-->
+        <scene sceneID="oM0-Yy-EZN">
+            <objects>
+                <viewController id="FJ7-wY-JxR" customClass="ChatVC" customModule="MessageMyFriends" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ajN-RX-hjR">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="66u-hR-VOU"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xM1-ak-Z1C" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2167" y="1308"/>
         </scene>
         <!--Config UserVC-->
         <scene sceneID="6oQ-Fe-oBr">
@@ -118,7 +138,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="5ob-zt-F3w"/>
-        <segue reference="zq8-Wc-Plq"/>
+        <segue reference="CEo-Fm-MEc"/>
+        <segue reference="Zh8-VF-3Ae"/>
     </inferredMetricsTieBreakers>
 </document>

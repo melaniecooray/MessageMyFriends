@@ -26,7 +26,6 @@ class FirebaseAPIHelper {
                 if observedEmail == email {
                     found += 1
                 }
-                print(found)
             }
             
         })
@@ -48,7 +47,7 @@ class FirebaseAPIHelper {
         ref.child("users").child(userID).updateChildValues(["latitude": latitude, "longitude": longitude])
     }
     
-    static func getAllUsers() -> [User] {
+    static func getAllUsers(completion: @escaping ([User]) -> ()) {
         var users : [User] = []
         let ref = Database.database().reference()
         let userRef = ref.child("users")
@@ -61,14 +60,32 @@ class FirebaseAPIHelper {
                 toAppend.lastName = dict["lastName"] as? String
                 users.append(toAppend)
             }
+            completion(users)
             
         })
-        return users
     }
     
-    static func addFriend() {
+    static func addFriend(userID: String, friendID: String) {
+        var userFavs: [String] = []
+        var friendFavs: [String] = []
         let ref = Database.database().reference()
-        ref.child("users")
+        let userRef = ref.child("users")
+        userRef.observe(.value, with: { (snapshot) in
+            for user in snapshot.children {
+                let newUser = user as! DataSnapshot
+                let dict = newUser.value as! [String:Any]
+                if dict["userID"] as! String == userID {
+                    userFavs = dict["friends"] as! [String]
+                }
+                if dict["userID"] as! String == friendID {
+                    friendFavs = dict["friends"] as! [String]
+                }
+            }
+        })
+        userFavs.append(friendID)
+        friendFavs.append(userID)
+        ref.child("users").child(userID).updateChildValues(["friends": userFavs])
+        ref.child("users").child(friendID).updateChildValues(["friends": friendFavs])
     }
     
     static func getFriends(userID: String, completion: @escaping ([User]) -> ()) {
@@ -84,22 +101,21 @@ class FirebaseAPIHelper {
                     friends = dict["friends"] as! [String]
                 }
             }
-        })
-        userRef.observe(.value, with: { (snapshot) in
-            for user in snapshot.children {
-                let newUser = user as! DataSnapshot
-                let dict = newUser.value as! [String:Any]
-                if friends.contains(dict["userID"] as! String) {
-                    var toReturn = User(email: dict["email"] as! String, userID: dict["userID"] as! String)
-                    toReturn.firstName = dict["firstName"] as! String
-                    toReturn.lastName = dict["lastName"] as! String
-                    //toReturn.coordinate = CLLocationCoordinate2D(latitude: dict["latitude"] as! CLLocationDegrees, longitude: dict["longitude"] as! CLLocationDegrees)
-                    returnFriends.append(toReturn)
+            userRef.observe(.value, with: { (snapshot2) in
+                for user in snapshot2.children {
+                    let newUser2 = user as! DataSnapshot
+                    let dict2 = newUser2.value as! [String:Any]
+                    if friends.contains(dict2["userID"] as! String) {
+                        var toReturn = User(email: dict2["email"] as! String, userID: dict2["userID"] as! String)
+                        toReturn.firstName = dict2["firstName"] as! String
+                        toReturn.lastName = dict2["lastName"] as! String
+                        //toReturn.coordinate = CLLocationCoordinate2D(latitude: dict["latitude"] as! CLLocationDegrees, longitude: dict["longitude"] as! CLLocationDegrees)
+                        returnFriends.append(toReturn)
+                    }
                 }
-            }
+                completion(returnFriends)
+            })
         })
-        
-        completion(returnFriends)
     }
     
 }

@@ -22,6 +22,7 @@ class ConfigUserVC: UIViewController {
 
         // Do any additional setup after loading the view.
         initUI()
+        addTapDismiss()
     }
     
     @objc func updateUser() {
@@ -55,6 +56,14 @@ class ConfigUserVC: UIViewController {
         if let resultVC = segue.destination as? HomeVC {
             resultVC.user = user
         }
+    }
+    
+    func addTapDismiss() {
+        view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard)))
+    }
+    @objc func dismissKeyboard() {
+        firstNameTextField.resignFirstResponder()
+        lastNameTextField.resignFirstResponder()
     }
 
 }

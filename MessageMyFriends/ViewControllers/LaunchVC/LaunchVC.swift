@@ -16,6 +16,7 @@ class LaunchVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         //performSegue(withIdentifier: "toHomeVCFromLaunch", sender: self)
+        self.navigationController?.navigationBar.isHidden = true
         setupScreen()
         // Do any additional setup after loading the view, typically from a nib.
     }

@@ -15,12 +15,21 @@ extension AddFriendVC: UITableViewDelegate, UITableViewDataSource {
             subview.removeFromSuperview()
         }
         cell.awakeFromNib()
-        cell.name.text = users[indexPath[1]].firstName
+        cell.name.text = users[indexPath[1]].firstName + " " + users[indexPath[1]].lastName
         return cell
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return users.count
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectedFriend = users[indexPath[1]]
+        if selectedFriend.email == UserDefaults.standard.string(forKey: "email") {
+            showError(title: "Invalid User:", message: "Can't select yourself")
+            return
+        }
+        
     }
     
     
