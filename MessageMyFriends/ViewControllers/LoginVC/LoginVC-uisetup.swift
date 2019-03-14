@@ -37,15 +37,16 @@ extension LoginVC {
     }
     
     func setupSubmitButton() {
-        submitButton = UIButton(frame: CGRect(x: 0, y: 0, width: view.frame.width/2, height: 50))
-        submitButton.center = CGPoint(x: view.frame.width/2, y: view.frame.height/3 * 2)
-        submitButton.setTitle("Login", for: .normal)
-        submitButton.setTitleColor(UIColor.white, for: .normal)
-        submitButton.backgroundColor = .black
-        submitButton.titleLabel?.font = UIFont(name: "Avenir", size: 30)
-        submitButton.layer.cornerRadius = 14
-        submitButton.addTarget(self, action: #selector(sendEmailLink), for: .touchUpInside)
-        view.addSubview(submitButton)
+        sendLinkButton = UIButton(frame: CGRect(x: 0, y: 0, width: view.frame.width/2, height: 50))
+        sendLinkButton.center = CGPoint(x: view.frame.width/2, y: view.frame.height/3 * 2)
+        sendLinkButton.setTitle("Send Link", for: .normal)
+        sendLinkButton.setTitleColor(UIColor.white, for: .normal)
+        sendLinkButton.backgroundColor = .black
+        sendLinkButton.titleLabel?.font = UIFont(name: "Avenir", size: 30)
+        sendLinkButton.layer.cornerRadius = 14
+        sendLinkButton.addTarget(self, action: #selector(sendEmailLink), for: .touchUpInside)
+        view.addSubview(sendLinkButton)
     }
+
     
 }

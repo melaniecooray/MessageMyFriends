@@ -9,10 +9,16 @@
 import UIKit
 import Firebase
 import FirebaseAuth
+import FirebaseDynamicLinks
 
 extension AppDelegate {
     
-    func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([Any]?) -> Void) -> Bool {
+    func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
+        let handled = DynamicLinks.dynamicLinks().handleUniversalLink(userActivity.webpageURL!) { (dynamiclink, error) in
+            if let link = dynamiclink?.url {
+                print("received link: \(link)")
+            }
+        }
         print("doing")
         return userActivity.webpageURL.flatMap(handlePasswordlessSignIn)!
     }
@@ -37,13 +43,19 @@ extension AppDelegate {
     func handlePasswordlessSignIn(withURL url: URL) -> Bool {
         let link = url.absoluteString
         if Auth.auth().isSignIn(withEmailLink: link) {
-            UserDefaults.standard.set(link, forKey: "Link")
-            Auth.auth().signIn(withEmail: UserDefaults.standard.string(forKey: "email")!, link: link) { (user, error) in
+            UserDefaults.standard.set(link, forKey: "link")
+            let email = UserDefaults.standard.string(forKey: "email")!
+            Auth.auth().signIn(withEmail: email, link: link) { (user, error) in
                 
                 if let error = error {
                     print("Error Signing In")
                     return
                 }
+                
+                print("signed user in")
+                
+                FirebaseAPIHelper.signInUser(email: email)
+                
                 (self.window?.rootViewController as? UINavigationController)?.popToRootViewController(animated: false)
                 self.window?.rootViewController?.children[0].performSegue(withIdentifier: "toHomeVCFromLaunch", sender: nil)
             }

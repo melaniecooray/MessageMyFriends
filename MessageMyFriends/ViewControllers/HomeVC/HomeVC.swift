@@ -19,10 +19,19 @@ class HomeVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //checkUser()
+        if user == nil {
+            createUser()
+            checkUser()
+        } else {
+            checkUser()
+        }
         setupNavBar()
         setupScreen()
         // Do any additional setup after loading the view, typically from a nib.
+    }
+    
+    func createUser() {
+        user = User(email: UserDefaults.standard.string(forKey: "email")!)
     }
     
     func checkUser() {
@@ -55,6 +64,12 @@ class HomeVC: UIViewController {
     
     @objc func addFriend() {
         performSegue(withIdentifier: "addFriend", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let resultVC = segue.destination as? ConfigUserVC {
+            resultVC.user = user
+        }
     }
 
 }

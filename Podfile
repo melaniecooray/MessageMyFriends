@@ -8,6 +8,7 @@ target 'MessageMyFriends' do
   # Pods for MessageMyFriends
   pod 'Firebase/Core'
   pod 'Firebase/Auth'
+  pod 'Firebase/Database'
   pod 'Firebase/DynamicLinks'
 
   target 'MessageMyFriendsUITests' do

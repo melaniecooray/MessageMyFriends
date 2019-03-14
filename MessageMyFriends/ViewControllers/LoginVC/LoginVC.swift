@@ -14,10 +14,14 @@ class LoginVC: UIViewController {
     
     var titleLabel : UILabel!
     var email : UITextField!
+    var savedEmail: String!
     var submitButton : UIButton!
+    var sendLinkButton: UIButton!
     
     let atCharacter: Character = "@"
     let periodCharacter: Character = "."
+    
+    var link: String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,6 +48,7 @@ class LoginVC: UIViewController {
     
     @objc func sendEmailLink() {
         print("please")
+        savedEmail = email.text!
         if !email.text!.contains(atCharacter) || !email.text!.contains(periodCharacter) || email.text!.count < 5 {
             showError(title: "Error", message: "Email is not valid")
             return
@@ -78,5 +83,6 @@ class LoginVC: UIViewController {
     @objc func dismissKeyboard() {
         email.resignFirstResponder()
     }
+    
     
 }
