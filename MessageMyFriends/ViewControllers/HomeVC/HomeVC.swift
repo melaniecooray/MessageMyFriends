@@ -18,6 +18,7 @@ class HomeVC: UIViewController {
     var validUser = true
     
     var friends: [User] = []
+    var selectedFriend: User!
     
     var signOutButton: UIBarButtonItem!
     var addFriendButton: UIBarButtonItem!
@@ -36,6 +37,7 @@ class HomeVC: UIViewController {
         } else {
             checkUser()
         }
+        initUI()
         if validUser {
             getFriends()
         }
@@ -51,6 +53,7 @@ class HomeVC: UIViewController {
     }
     
     func checkUser() {
+        user.title = user.firstName + " " + user.lastName
         if user.email == nil || user.firstName == nil || user.lastName == nil {
             validUser = false
             print("found nil")
@@ -91,6 +94,9 @@ class HomeVC: UIViewController {
             resultVC.user = user
         } else if let resultVC = segue.destination as? AddFriendVC {
             resultVC.currentUser = user
+        } else if let resultVC = segue.destination as? ChatVC {
+            resultVC.user1 = user
+            resultVC.user2 = selectedFriend
         }
     }
     
@@ -103,11 +109,26 @@ class HomeVC: UIViewController {
     func getFriends() {
         print("getting friends")
         FirebaseAPIHelper.getFriends(userID: user.userID) { frs in
-            print(frs)
-            self.friends = frs
-            self.initUI()
-            return
+            var found = false
+            for friend in self.friends {
+                if friend.userID == frs.userID {
+                    found = true
+                }
+            }
+            if !found {
+                frs.title = frs.firstName + " " + frs.lastName
+                self.friends.append(frs)
+                self.mapView.addAnnotation(frs)
+            }
+            self.tableView.reloadData()
         }
+    }
+    
+    func createAnnotations() {
+        for friend in friends {
+            mapView.addAnnotation(friend)
+        }
+        mapView.addAnnotation(user)
     }
 
 }

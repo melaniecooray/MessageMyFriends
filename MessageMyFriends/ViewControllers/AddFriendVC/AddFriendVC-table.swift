@@ -27,7 +27,16 @@ extension AddFriendVC: UITableViewDelegate, UITableViewDataSource {
         selectedFriend = users[indexPath[1]]
         if selectedFriend.email == UserDefaults.standard.string(forKey: "email") {
             showError(title: "Invalid User:", message: "Can't select yourself")
+            tableView.deselectRow(at: indexPath, animated: true)
             return
+        } else {
+            for friend in currentUser.friends {
+                if selectedFriend.userID == friend.userID {
+                    showError(title: "Invalid User:", message: "Can't select someone who is already your friend")
+                    tableView.deselectRow(at: indexPath, animated: true)
+                    return
+                }
+            }
         }
         
     }

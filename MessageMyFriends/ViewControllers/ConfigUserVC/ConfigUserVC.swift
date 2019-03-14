@@ -38,6 +38,7 @@ class ConfigUserVC: UIViewController {
         
         user.firstName = firstName
         user.lastName = lastName
+        user.title = firstName + " " + lastName
         
         FirebaseAPIHelper.updateUser(firstName: firstName, lastName: lastName, userID: user.userID)
         

@@ -33,6 +33,7 @@
 		7B5AFEA5223A044200B6168B /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5AFEA4223A044200B6168B /* UserCell.swift */; };
 		7B5AFEA7223A333800B6168B /* AddFriendVC-uisetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5AFEA6223A333800B6168B /* AddFriendVC-uisetup.swift */; };
 		7B5AFEAA223A5E9300B6168B /* ChatVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5AFEA9223A5E9300B6168B /* ChatVC.swift */; };
+		7B5AFEAC223AFE8A00B6168B /* ChatVC-uisetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5AFEAB223AFE8A00B6168B /* ChatVC-uisetup.swift */; };
 		AF0EFA62B8CEC821EEC8DA8A /* Pods_MessageMyFriendsUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C151E065BA09A310FBDF6380 /* Pods_MessageMyFriendsUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -80,6 +81,7 @@
 		7B5AFEA4223A044200B6168B /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
 		7B5AFEA6223A333800B6168B /* AddFriendVC-uisetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddFriendVC-uisetup.swift"; sourceTree = "<group>"; };
 		7B5AFEA9223A5E9300B6168B /* ChatVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatVC.swift; sourceTree = "<group>"; };
+		7B5AFEAB223AFE8A00B6168B /* ChatVC-uisetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChatVC-uisetup.swift"; sourceTree = "<group>"; };
 		94A003F0A5A52E6D651E34A4 /* Pods-MessageMyFriendsUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MessageMyFriendsUITests.release.xcconfig"; path = "Target Support Files/Pods-MessageMyFriendsUITests/Pods-MessageMyFriendsUITests.release.xcconfig"; sourceTree = "<group>"; };
 		AAF3AEB146399F8AD367526C /* Pods-MessageMyFriends.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MessageMyFriends.debug.xcconfig"; path = "Target Support Files/Pods-MessageMyFriends/Pods-MessageMyFriends.debug.xcconfig"; sourceTree = "<group>"; };
 		C151E065BA09A310FBDF6380 /* Pods_MessageMyFriendsUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MessageMyFriendsUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -243,6 +245,7 @@
 			isa = PBXGroup;
 			children = (
 				7B5AFEA9223A5E9300B6168B /* ChatVC.swift */,
+				7B5AFEAB223AFE8A00B6168B /* ChatVC-uisetup.swift */,
 			);
 			path = ChatVC;
 			sourceTree = "<group>";
@@ -388,8 +391,12 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-MessageMyFriends/Pods-MessageMyFriends-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/ARMDevSuite/ARMDevSuite.framework",
+				"${BUILT_PRODUCTS_DIR}/CryptoSwift/CryptoSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/JGProgressHUD/JGProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/SkyFloatingLabelTextField/SkyFloatingLabelTextField.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
@@ -397,8 +404,12 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ARMDevSuite.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CryptoSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JGProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SkyFloatingLabelTextField.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
@@ -473,6 +484,7 @@
 				7B5AFEA12239FA9900B6168B /* HomeVC-coordinate.swift in Sources */,
 				0C2502BD22372C060078ED6C /* HomeVC.swift in Sources */,
 				7B5AFE9D2239F92E00B6168B /* HomeVC-map.swift in Sources */,
+				7B5AFEAC223AFE8A00B6168B /* ChatVC-uisetup.swift in Sources */,
 				0C2502BB2237249A0078ED6C /* LoginVC.swift in Sources */,
 				7B5AFEA5223A044200B6168B /* UserCell.swift in Sources */,
 				7B5AFE9F2239F95A00B6168B /* HomeVC-uisetup.swift in Sources */,

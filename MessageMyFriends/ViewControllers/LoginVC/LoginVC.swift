@@ -23,16 +23,23 @@ class LoginVC: UIViewController {
     
     var link: String!
     
+    var foundUser: User?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        Auth.auth().addStateDidChangeListener { auth, user in
+        Auth.auth().addStateDidChangeListener { (auth, user) in
             if let user = user {
-                self.performSegue(withIdentifier: "toHomeVCFromLogin", sender: self)
+                FirebaseAPIHelper.getUserData(userID: UserDefaults.standard.string(forKey: "userID")!) {user in
+                    self.foundUser = user
+                    print("got user")
+                    self.performSegue(withIdentifier: "toHomeVCFromLogin", sender: self)
+                    return
+                }
             } else {
                 self.initUI()
+                self.addTapDismiss()
             }
         }
-        addTapDismiss()
         // Do any additional setup after loading the view, typically from a nib.
     }
     
@@ -88,6 +95,12 @@ class LoginVC: UIViewController {
     }
     @objc func dismissKeyboard() {
         email.resignFirstResponder()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let resultVC = segue.destination as? HomeVC {
+            resultVC.user = foundUser
+        }
     }
     
     

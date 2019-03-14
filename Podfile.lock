@@ -1,4 +1,31 @@
 PODS:
+  - ARMDevSuite (0.1.25):
+    - ARMDevSuite/Alerts (= 0.1.25)
+    - ARMDevSuite/Layouts (= 0.1.25)
+    - ARMDevSuite/LocalData (= 0.1.25)
+    - ARMDevSuite/Logic (= 0.1.25)
+    - ARMDevSuite/SegControl (= 0.1.25)
+    - ARMDevSuite/SlideView (= 0.1.25)
+    - ARMDevSuite/TextField (= 0.1.25)
+    - ARMDevSuite/UISuite (= 0.1.25)
+  - ARMDevSuite/Alerts (0.1.25):
+    - JGProgressHUD
+  - ARMDevSuite/Layouts (0.1.25)
+  - ARMDevSuite/LocalData (0.1.25)
+  - ARMDevSuite/Logic (0.1.25):
+    - CryptoSwift
+  - ARMDevSuite/SegControl (0.1.25):
+    - ARMDevSuite/Layouts
+    - ARMDevSuite/UISuite
+  - ARMDevSuite/SlideView (0.1.25):
+    - ARMDevSuite/Layouts
+    - ARMDevSuite/UISuite
+  - ARMDevSuite/TextField (0.1.25):
+    - ARMDevSuite/UISuite
+    - SkyFloatingLabelTextField (~> 3.0)
+  - ARMDevSuite/UISuite (0.1.25):
+    - ARMDevSuite/Layouts
+  - CryptoSwift (0.14.0)
   - Firebase/Auth (5.16.0):
     - Firebase/CoreOnly
     - FirebaseAuth (= 5.3.0)
@@ -68,14 +95,17 @@ PODS:
   - GoogleUtilities/UserDefaults (5.3.7):
     - GoogleUtilities/Logger
   - GTMSessionFetcher/Core (1.2.1)
+  - JGProgressHUD (2.0.3)
   - leveldb-library (1.20)
   - nanopb (0.3.901):
     - nanopb/decode (= 0.3.901)
     - nanopb/encode (= 0.3.901)
   - nanopb/decode (0.3.901)
   - nanopb/encode (0.3.901)
+  - SkyFloatingLabelTextField (3.6.0)
 
 DEPENDENCIES:
+  - ARMDevSuite
   - Firebase/Auth
   - Firebase/Core
   - Firebase/Database
@@ -83,6 +113,8 @@ DEPENDENCIES:
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - ARMDevSuite
+    - CryptoSwift
     - Firebase
     - FirebaseAnalytics
     - FirebaseAnalyticsInterop
@@ -95,10 +127,14 @@ SPEC REPOS:
     - GoogleAppMeasurement
     - GoogleUtilities
     - GTMSessionFetcher
+    - JGProgressHUD
     - leveldb-library
     - nanopb
+    - SkyFloatingLabelTextField
 
 SPEC CHECKSUMS:
+  ARMDevSuite: 86d97efc64960dde8c407f359fb8f53265e7d9e3
+  CryptoSwift: 35a10419f4dbf0619c13f8c1c180037e115323fa
   Firebase: 749a8ff4962f9d8c79dda1966de20f6f77583d67
   FirebaseAnalytics: d35d47c03c50c73c14a7fd31463c5775843e78a9
   FirebaseAnalyticsInterop: e5f21be9af6548372e2f0815834ff909bff395a2
@@ -111,9 +147,11 @@ SPEC CHECKSUMS:
   GoogleAppMeasurement: 621f3bc6211d5ba548debe01fafad30cf5ab6859
   GoogleUtilities: 111a012f4c3a29c9e7c954c082fafd6ee3c999c0
   GTMSessionFetcher: 32aeca0aa144acea523e1c8e053089dec2cb98ca
+  JGProgressHUD: 12b20a8f4ffe05258f8635c1ab92816e451f904d
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
+  SkyFloatingLabelTextField: 38164979b79512f9ff9288ad8acfc4bbf5d843e3
 
-PODFILE CHECKSUM: 0a7e274bc9b442b2af3ac7e4916d52a6b83d86da
+PODFILE CHECKSUM: 9623300ef1cd113f067c26b2f66206add5b56b51
 
 COCOAPODS: 1.6.0

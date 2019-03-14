@@ -27,6 +27,12 @@ class AddFriendVC: UIViewController {
             self.users = usrs
             self.initUI()
         }
+        
+        FirebaseAPIHelper.getFriends(userID: currentUser.userID) { frnd in
+            if !self.currentUser.friends.contains(frnd) {
+                self.currentUser.friends.append(frnd)
+            }
+        }
     }
     
     func showError(title: String, message: String) {

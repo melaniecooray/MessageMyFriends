@@ -10,6 +10,7 @@ target 'MessageMyFriends' do
   pod 'Firebase/Auth'
   pod 'Firebase/Database'
   pod 'Firebase/DynamicLinks'
+  pod 'ARMDevSuite'
 
   target 'MessageMyFriendsUITests' do
     inherit! :search_paths

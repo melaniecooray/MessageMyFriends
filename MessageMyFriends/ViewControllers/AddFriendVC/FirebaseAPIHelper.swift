@@ -36,6 +36,55 @@ class FirebaseAPIHelper {
         }
     }
     
+    static func getUserData(userID: String, completion: @escaping (User) -> ()) {
+        print("getting user data")
+        let ref = Database.database().reference()
+        let userRef = ref.child("users")
+        userRef.observeSingleEvent(of: .value, with: { (snapshot) in
+            var toReturn: User?
+            for user in snapshot.children {
+                let newUser = user as! DataSnapshot
+                let dict = newUser.value as! [String:Any]
+                let observedUID = dict["userID"] as! String
+                print(observedUID)
+                print(userID)
+                if observedUID == userID {
+                    toReturn = User(email: dict["email"] as! String, userID: dict["userID"] as! String)
+                    toReturn?.firstName = dict["firstName"] as! String
+                    toReturn?.lastName = dict["lastName"] as! String
+                    if let latitude = dict["latitude"] as? Double {
+                        if let longitude = dict["longitude"] as? Double {
+                            toReturn?.coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+                        }
+                    }
+                }
+            }
+            completion(toReturn!)
+        })
+    }
+    
+    static func createChat(user1ID: String, user2ID: String) {
+        var found = 0
+        let ref = Database.database().reference()
+        let chatRef = ref.child("chats")
+        chatRef.observe(.value, with: { (snapshot) in
+            for user in snapshot.children {
+                let newUser = user as! DataSnapshot
+                let dict = newUser.value as! [String:Any]
+                let user1 = dict["user1"] as! String
+                let user2 = dict["user2"] as! String
+                if (user1 == user1ID  || user1 == user2ID) && (user2 == user1ID || user2 == user2ID){
+                    found += 1
+                }
+            }
+            
+        })
+        if (found == 0) {
+            let chatID = chatRef.childByAutoId().key
+            ref.child("chats").child(chatID!).setValue(["chatID": chatID, "user1": user1ID, "user2": user2ID])
+        }
+    }
+    
     static func updateUser(firstName: String, lastName: String, userID: String) {
         let ref = Database.database().reference()
         ref.child("users").child(userID).updateChildValues(["firstName": firstName, "lastName": lastName])
@@ -45,6 +94,11 @@ class FirebaseAPIHelper {
     static func updateLocation(userID: String, latitude: Double, longitude: Double) {
         let ref = Database.database().reference()
         ref.child("users").child(userID).updateChildValues(["latitude": latitude, "longitude": longitude])
+    }
+    
+    static func updateTime(userID: String, time: String) {
+        let ref = Database.database().reference()
+        ref.child("users").child(userID).updateChildValues(["time": time])
     }
     
     static func getAllUsers(completion: @escaping ([User]) -> ()) {
@@ -88,7 +142,7 @@ class FirebaseAPIHelper {
         ref.child("users").child(friendID).updateChildValues(["friends": friendFavs])
     }
     
-    static func getFriends(userID: String, completion: @escaping ([User]) -> ()) {
+    static func getFriends(userID: String, completion: @escaping (User) -> ()) {
         let ref = Database.database().reference()
         let userRef = ref.child("users")
         var friends: [String] = []
@@ -106,16 +160,21 @@ class FirebaseAPIHelper {
                     let newUser2 = user as! DataSnapshot
                     let dict2 = newUser2.value as! [String:Any]
                     if friends.contains(dict2["userID"] as! String) {
-                        var toReturn = User(email: dict2["email"] as! String, userID: dict2["userID"] as! String)
-                        toReturn.firstName = dict2["firstName"] as! String
-                        toReturn.lastName = dict2["lastName"] as! String
+                        let toReturn = User(email: dict2["email"] as! String, userID: dict2["userID"] as! String)
+                        toReturn.firstName = dict2["firstName"] as? String
+                        toReturn.lastName = dict2["lastName"] as? String
+                        toReturn.subtitle = dict2["time"] as? String
+                        let latitude = dict2["latitude"] as! Double
+                        let longitude = dict2["longitude"] as! Double
+                        toReturn.coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+                        completion(toReturn)
                         //toReturn.coordinate = CLLocationCoordinate2D(latitude: dict["latitude"] as! CLLocationDegrees, longitude: dict["longitude"] as! CLLocationDegrees)
                         returnFriends.append(toReturn)
                     }
                 }
-                completion(returnFriends)
             })
         })
+        //completion(returnFriends)
     }
     
 }

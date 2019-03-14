@@ -13,6 +13,13 @@ extension HomeVC: CLLocationManagerDelegate {
         location = locations.last?.coordinate
         centerMap()
         FirebaseAPIHelper.updateLocation(userID: user.userID, latitude: Double(location.latitude), longitude: Double(location.longitude))
+        let date = Date()
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MM-dd-yyyy HH:mm"
+        let result = formatter.string(from: date)
+        FirebaseAPIHelper.updateTime(userID: user.userID, time: result)
+        user.subtitle = result
+        createAnnotations()
     }
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print(error)
