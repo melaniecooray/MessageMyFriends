@@ -25,7 +25,13 @@ class LoginVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        initUI()
+        Auth.auth().addStateDidChangeListener { auth, user in
+            if let user = user {
+                self.performSegue(withIdentifier: "toHomeVCFromLogin", sender: self)
+            } else {
+                self.initUI()
+            }
+        }
         addTapDismiss()
         // Do any additional setup after loading the view, typically from a nib.
     }

@@ -13,6 +13,7 @@ extension HomeVC {
     
     func initUI() {
         setupMap()
+        setupTable()
     }
     
     func setupMap() {
@@ -27,6 +28,15 @@ extension HomeVC {
         if(CLLocationManager.authorizationStatus() == .authorizedWhenInUse) {
             self.locationManager.requestLocation()
         }
+    }
+    
+    func setupTable() {
+        tableView = UITableView(frame: CGRect(x: 0, y: mapView.frame.maxY + 15, width: view.frame.width, height: 300))
+        tableView.register(UserCell.self, forCellReuseIdentifier: "FriendList")
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.backgroundColor = .white
+        view.addSubview(tableView)
     }
     
 }

@@ -9,6 +9,7 @@
 import Foundation
 import Firebase
 import FirebaseAuth
+import MapKit
 
 class FirebaseAPIHelper {
     
@@ -32,7 +33,7 @@ class FirebaseAPIHelper {
         if (found == 0) {
             let userID = userRef.childByAutoId().key
             UserDefaults.standard.set(userID, forKey: "userID")
-            ref.child("users").child(userID!).setValue(["userID": userID, "email": email, "friends": []])
+            ref.child("users").child(userID!).setValue(["userID": userID, "email": email, "friends": [userID]])
         }
     }
     
@@ -68,6 +69,37 @@ class FirebaseAPIHelper {
     static func addFriend() {
         let ref = Database.database().reference()
         ref.child("users")
+    }
+    
+    static func getFriends(userID: String, completion: @escaping ([User]) -> ()) {
+        let ref = Database.database().reference()
+        let userRef = ref.child("users")
+        var friends: [String] = []
+        var returnFriends: [User] = []
+        userRef.observe(.value, with: { (snapshot) in
+            for user in snapshot.children {
+                let newUser = user as! DataSnapshot
+                let dict = newUser.value as! [String:Any]
+                if dict["userID"] as? String == userID {
+                    friends = dict["friends"] as! [String]
+                }
+            }
+        })
+        userRef.observe(.value, with: { (snapshot) in
+            for user in snapshot.children {
+                let newUser = user as! DataSnapshot
+                let dict = newUser.value as! [String:Any]
+                if friends.contains(dict["userID"] as! String) {
+                    var toReturn = User(email: dict["email"] as! String, userID: dict["userID"] as! String)
+                    toReturn.firstName = dict["firstName"] as! String
+                    toReturn.lastName = dict["lastName"] as! String
+                    //toReturn.coordinate = CLLocationCoordinate2D(latitude: dict["latitude"] as! CLLocationDegrees, longitude: dict["longitude"] as! CLLocationDegrees)
+                    returnFriends.append(toReturn)
+                }
+            }
+        })
+        
+        completion(returnFriends)
     }
     
 }

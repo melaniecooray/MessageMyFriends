@@ -75,8 +75,8 @@
                         <viewLayoutGuide key="safeArea" id="RFk-Pb-Bcm"/>
                     </view>
                     <connections>
-                        <segue destination="HfO-MS-XtU" kind="show" identifier="toConfig" id="Lzm-HR-c9U"/>
                         <segue destination="yI4-SW-aS3" kind="show" identifier="addFriend" id="zOS-AH-f3F"/>
+                        <segue destination="HfO-MS-XtU" kind="show" identifier="toConfig" id="5ob-zt-F3w"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OUn-fl-LzD" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -118,6 +118,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="5ob-zt-F3w"/>
         <segue reference="zq8-Wc-Plq"/>
     </inferredMetricsTieBreakers>
 </document>
