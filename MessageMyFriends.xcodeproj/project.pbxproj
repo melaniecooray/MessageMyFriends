@@ -34,6 +34,14 @@
 		7B5AFEA7223A333800B6168B /* AddFriendVC-uisetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5AFEA6223A333800B6168B /* AddFriendVC-uisetup.swift */; };
 		7B5AFEAA223A5E9300B6168B /* ChatVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5AFEA9223A5E9300B6168B /* ChatVC.swift */; };
 		7B5AFEAC223AFE8A00B6168B /* ChatVC-uisetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5AFEAB223AFE8A00B6168B /* ChatVC-uisetup.swift */; };
+		7B5AFEAE223B001D00B6168B /* ChatVC-table.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5AFEAD223B001D00B6168B /* ChatVC-table.swift */; };
+		7B5AFEB0223B006B00B6168B /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5AFEAF223B006B00B6168B /* Message.swift */; };
+		7B5AFEB2223B011E00B6168B /* ChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5AFEB1223B011E00B6168B /* ChatCell.swift */; };
+		7B5AFEB4223B01B800B6168B /* ChatVC-text.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5AFEB3223B01B800B6168B /* ChatVC-text.swift */; };
+		7B5AFEB6223B031900B6168B /* ChatVC-logic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5AFEB5223B031900B6168B /* ChatVC-logic.swift */; };
+		7B5AFEB8223B03C900B6168B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5AFEB7223B03C900B6168B /* Constants.swift */; };
+		7B5AFEBA223B050A00B6168B /* Chat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5AFEB9223B050A00B6168B /* Chat.swift */; };
+		7B5AFEBC223B08C300B6168B /* FirebaseAPIHelper-chat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5AFEBB223B08C300B6168B /* FirebaseAPIHelper-chat.swift */; };
 		AF0EFA62B8CEC821EEC8DA8A /* Pods_MessageMyFriendsUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C151E065BA09A310FBDF6380 /* Pods_MessageMyFriendsUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -82,6 +90,14 @@
 		7B5AFEA6223A333800B6168B /* AddFriendVC-uisetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddFriendVC-uisetup.swift"; sourceTree = "<group>"; };
 		7B5AFEA9223A5E9300B6168B /* ChatVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatVC.swift; sourceTree = "<group>"; };
 		7B5AFEAB223AFE8A00B6168B /* ChatVC-uisetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChatVC-uisetup.swift"; sourceTree = "<group>"; };
+		7B5AFEAD223B001D00B6168B /* ChatVC-table.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChatVC-table.swift"; sourceTree = "<group>"; };
+		7B5AFEAF223B006B00B6168B /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Message.swift; path = MessageMyFriends/ViewControllers/ChatVC/Message.swift; sourceTree = SOURCE_ROOT; };
+		7B5AFEB1223B011E00B6168B /* ChatCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatCell.swift; sourceTree = "<group>"; };
+		7B5AFEB3223B01B800B6168B /* ChatVC-text.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChatVC-text.swift"; sourceTree = "<group>"; };
+		7B5AFEB5223B031900B6168B /* ChatVC-logic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChatVC-logic.swift"; sourceTree = "<group>"; };
+		7B5AFEB7223B03C900B6168B /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		7B5AFEB9223B050A00B6168B /* Chat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Chat.swift; path = MessageMyFriends/Chat.swift; sourceTree = SOURCE_ROOT; };
+		7B5AFEBB223B08C300B6168B /* FirebaseAPIHelper-chat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "FirebaseAPIHelper-chat.swift"; path = "MessageMyFriends/FirebaseAPIHelper-chat.swift"; sourceTree = SOURCE_ROOT; };
 		94A003F0A5A52E6D651E34A4 /* Pods-MessageMyFriendsUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MessageMyFriendsUITests.release.xcconfig"; path = "Target Support Files/Pods-MessageMyFriendsUITests/Pods-MessageMyFriendsUITests.release.xcconfig"; sourceTree = "<group>"; };
 		AAF3AEB146399F8AD367526C /* Pods-MessageMyFriends.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MessageMyFriends.debug.xcconfig"; path = "Target Support Files/Pods-MessageMyFriends/Pods-MessageMyFriends.debug.xcconfig"; sourceTree = "<group>"; };
 		C151E065BA09A310FBDF6380 /* Pods_MessageMyFriendsUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MessageMyFriendsUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -120,6 +136,7 @@
 			isa = PBXGroup;
 			children = (
 				7B5AFE982238659000B6168B /* FirebaseAPIHelper.swift */,
+				7B5AFEBB223B08C300B6168B /* FirebaseAPIHelper-chat.swift */,
 			);
 			path = "FireBase API Helpers";
 			sourceTree = "<group>";
@@ -128,6 +145,8 @@
 			isa = PBXGroup;
 			children = (
 				7B5AFE872237693A00B6168B /* User.swift */,
+				7B5AFEAF223B006B00B6168B /* Message.swift */,
+				7B5AFEB9223B050A00B6168B /* Chat.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -178,6 +197,7 @@
 				7B5AFE692237157B00B6168B /* LaunchScreen.storyboard */,
 				7B5AFE6C2237157B00B6168B /* Info.plist */,
 				7B5AFE8322371DE000B6168B /* GoogleService-Info.plist */,
+				7B5AFEB7223B03C900B6168B /* Constants.swift */,
 			);
 			path = MessageMyFriends;
 			sourceTree = "<group>";
@@ -246,6 +266,10 @@
 			children = (
 				7B5AFEA9223A5E9300B6168B /* ChatVC.swift */,
 				7B5AFEAB223AFE8A00B6168B /* ChatVC-uisetup.swift */,
+				7B5AFEAD223B001D00B6168B /* ChatVC-table.swift */,
+				7B5AFEB1223B011E00B6168B /* ChatCell.swift */,
+				7B5AFEB3223B01B800B6168B /* ChatVC-text.swift */,
+				7B5AFEB5223B031900B6168B /* ChatVC-logic.swift */,
 			);
 			path = ChatVC;
 			sourceTree = "<group>";
@@ -392,6 +416,7 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-MessageMyFriends/Pods-MessageMyFriends-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/ARMDevSuite/ARMDevSuite.framework",
+				"${BUILT_PRODUCTS_DIR}/ChameleonFramework/ChameleonFramework.framework",
 				"${BUILT_PRODUCTS_DIR}/CryptoSwift/CryptoSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
@@ -405,6 +430,7 @@
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ARMDevSuite.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ChameleonFramework.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CryptoSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
@@ -470,6 +496,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7B5AFEA7223A333800B6168B /* AddFriendVC-uisetup.swift in Sources */,
+				7B5AFEBC223B08C300B6168B /* FirebaseAPIHelper-chat.swift in Sources */,
 				7B5AFE972238643400B6168B /* FriendCell.swift in Sources */,
 				7B5AFE9B2239015E00B6168B /* ConfigUserVC-uisetup.swift in Sources */,
 				7B5AFE632237157700B6168B /* LaunchVC.swift in Sources */,
@@ -478,6 +505,7 @@
 				7B5AFEA3223A037300B6168B /* HomeVC-table.swift in Sources */,
 				7B5AFE992238659000B6168B /* FirebaseAPIHelper.swift in Sources */,
 				7B5AFE862237668800B6168B /* AppDelegate-linkhandling.swift in Sources */,
+				7B5AFEBA223B050A00B6168B /* Chat.swift in Sources */,
 				7B5AFE882237693A00B6168B /* User.swift in Sources */,
 				7B5AFE8A22377F6700B6168B /* ConfigUserVC.swift in Sources */,
 				7B5AFE932237855500B6168B /* LoginVC-uisetup.swift in Sources */,
@@ -486,10 +514,16 @@
 				7B5AFE9D2239F92E00B6168B /* HomeVC-map.swift in Sources */,
 				7B5AFEAC223AFE8A00B6168B /* ChatVC-uisetup.swift in Sources */,
 				0C2502BB2237249A0078ED6C /* LoginVC.swift in Sources */,
+				7B5AFEB2223B011E00B6168B /* ChatCell.swift in Sources */,
+				7B5AFEB0223B006B00B6168B /* Message.swift in Sources */,
+				7B5AFEB4223B01B800B6168B /* ChatVC-text.swift in Sources */,
 				7B5AFEA5223A044200B6168B /* UserCell.swift in Sources */,
+				7B5AFEB6223B031900B6168B /* ChatVC-logic.swift in Sources */,
 				7B5AFE9F2239F95A00B6168B /* HomeVC-uisetup.swift in Sources */,
+				7B5AFEAE223B001D00B6168B /* ChatVC-table.swift in Sources */,
 				7B5AFE8C2237842800B6168B /* AddFriendVC.swift in Sources */,
 				7B5AFE612237157700B6168B /* AppDelegate.swift in Sources */,
+				7B5AFEB8223B03C900B6168B /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

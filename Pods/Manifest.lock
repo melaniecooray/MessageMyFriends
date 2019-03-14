@@ -25,6 +25,9 @@ PODS:
     - SkyFloatingLabelTextField (~> 3.0)
   - ARMDevSuite/UISuite (0.1.25):
     - ARMDevSuite/Layouts
+  - ChameleonFramework/Default (2.1.0)
+  - ChameleonFramework/Swift (2.1.0):
+    - ChameleonFramework/Default
   - CryptoSwift (0.14.0)
   - Firebase/Auth (5.16.0):
     - Firebase/CoreOnly
@@ -106,6 +109,7 @@ PODS:
 
 DEPENDENCIES:
   - ARMDevSuite
+  - ChameleonFramework/Swift (from `https://github.com/ViccAlexander/Chameleon.git`, branch `wip/swift4`)
   - Firebase/Auth
   - Firebase/Core
   - Firebase/Database
@@ -132,8 +136,19 @@ SPEC REPOS:
     - nanopb
     - SkyFloatingLabelTextField
 
+EXTERNAL SOURCES:
+  ChameleonFramework:
+    :branch: wip/swift4
+    :git: https://github.com/ViccAlexander/Chameleon.git
+
+CHECKOUT OPTIONS:
+  ChameleonFramework:
+    :commit: db432ca1b1a3d8f83ee1f881208c0c960a325e73
+    :git: https://github.com/ViccAlexander/Chameleon.git
+
 SPEC CHECKSUMS:
   ARMDevSuite: 86d97efc64960dde8c407f359fb8f53265e7d9e3
+  ChameleonFramework: d21a3cc247abfe5e37609a283a8238b03575cf64
   CryptoSwift: 35a10419f4dbf0619c13f8c1c180037e115323fa
   Firebase: 749a8ff4962f9d8c79dda1966de20f6f77583d67
   FirebaseAnalytics: d35d47c03c50c73c14a7fd31463c5775843e78a9
@@ -152,6 +167,6 @@ SPEC CHECKSUMS:
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
   SkyFloatingLabelTextField: 38164979b79512f9ff9288ad8acfc4bbf5d843e3
 
-PODFILE CHECKSUM: 9623300ef1cd113f067c26b2f66206add5b56b51
+PODFILE CHECKSUM: 88b41304b2e87d050a55817d736a17926eadbfe8
 
 COCOAPODS: 1.6.0

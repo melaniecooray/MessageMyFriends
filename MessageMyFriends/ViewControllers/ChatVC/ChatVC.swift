@@ -13,9 +13,11 @@ class ChatVC: UIViewController {
     var user1: User!
     var user2: User!
     
+    var chat: Chat!
+    
     // ajays 
     var user: User!
-    //var messages = [Message]()
+    var messages = [Message]()
     
     var navbar: UINavigationBar!
     var composeBar: UIView!
@@ -36,7 +38,9 @@ class ChatVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         initUI()
-        FirebaseAPIHelper.createChat(user1ID: user1.userID, user2ID: user2.userID)
+        FirebaseAPIHelper.createChat(user1ID: user1.userID, user2ID: user2.userID) { cht in
+            self.chat = cht
+        }
     }
 
 }

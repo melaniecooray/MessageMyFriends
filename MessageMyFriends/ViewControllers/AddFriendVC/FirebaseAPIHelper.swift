@@ -63,28 +63,6 @@ class FirebaseAPIHelper {
         })
     }
     
-    static func createChat(user1ID: String, user2ID: String) {
-        var found = 0
-        let ref = Database.database().reference()
-        let chatRef = ref.child("chats")
-        chatRef.observe(.value, with: { (snapshot) in
-            for user in snapshot.children {
-                let newUser = user as! DataSnapshot
-                let dict = newUser.value as! [String:Any]
-                let user1 = dict["user1"] as! String
-                let user2 = dict["user2"] as! String
-                if (user1 == user1ID  || user1 == user2ID) && (user2 == user1ID || user2 == user2ID){
-                    found += 1
-                }
-            }
-            
-        })
-        if (found == 0) {
-            let chatID = chatRef.childByAutoId().key
-            ref.child("chats").child(chatID!).setValue(["chatID": chatID, "user1": user1ID, "user2": user2ID])
-        }
-    }
-    
     static func updateUser(firstName: String, lastName: String, userID: String) {
         let ref = Database.database().reference()
         ref.child("users").child(userID).updateChildValues(["firstName": firstName, "lastName": lastName])
