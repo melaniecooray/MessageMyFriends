@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MapKit
 
 class HomeVC: UIViewController {
     
@@ -17,8 +18,15 @@ class HomeVC: UIViewController {
     var signOutButton: UIBarButtonItem!
     var addFriendButton: UIBarButtonItem!
     
+    var mapView: MKMapView!
+    var locationManager: CLLocationManager!
+    var location: CLLocationCoordinate2D!
+    
+    var tableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        initUI()
         if user == nil {
             createUser()
             checkUser()
@@ -26,12 +34,13 @@ class HomeVC: UIViewController {
             checkUser()
         }
         setupNavBar()
-        setupScreen()
+        //setupScreen()
         // Do any additional setup after loading the view, typically from a nib.
     }
     
     func createUser() {
-        user = User(email: UserDefaults.standard.string(forKey: "email")!)
+        user = User(email: UserDefaults.standard.string(forKey: "email")!, userID: UserDefaults.standard.string(forKey: "userID")!)
+        //user.coordinate = location
     }
     
     func checkUser() {
@@ -70,6 +79,12 @@ class HomeVC: UIViewController {
         if let resultVC = segue.destination as? ConfigUserVC {
             resultVC.user = user
         }
+    }
+    
+    func centerMap() {
+        user.coordinate = location
+        var region = MKCoordinateRegion(center: self.location, latitudinalMeters: 1000, longitudinalMeters: 1000)
+        self.mapView.setRegion(region, animated : true)
     }
 
 }

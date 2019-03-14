@@ -7,14 +7,19 @@
 //
 
 import Foundation
+import MapKit
 
-class User {
+class User: NSObject, MKAnnotation {
     
+    var coordinate: CLLocationCoordinate2D
+    var userID: String!
     var email: String!
     var firstName: String!
     var lastName: String!
     
-    init(email: String) {
+    init(email: String, userID: String) {
         self.email = email
+        self.userID = userID
+        self.coordinate = CLLocationCoordinate2D(latitude: 100, longitude: 100)
     }
 }

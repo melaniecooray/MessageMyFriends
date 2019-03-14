@@ -38,6 +38,9 @@ class ConfigUserVC: UIViewController {
         user.firstName = firstName
         user.lastName = lastName
         
+        FirebaseAPIHelper.updateUser(firstName: firstName, lastName: lastName, userID: user.userID)
+        
+        performSegue(withIdentifier: "configuredUser", sender: self)
         
     }
     
@@ -46,6 +49,12 @@ class ConfigUserVC: UIViewController {
         let defaultAction = UIAlertAction(title: "OK", style: .default, handler: nil)
         alert.addAction(defaultAction)
         self.present(alert, animated: true, completion: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let resultVC = segue.destination as? HomeVC {
+            resultVC.user = user
+        }
     }
 
 }

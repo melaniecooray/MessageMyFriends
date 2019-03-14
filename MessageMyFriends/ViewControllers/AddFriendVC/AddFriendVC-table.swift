@@ -15,6 +15,7 @@ extension AddFriendVC: UITableViewDelegate, UITableViewDataSource {
             subview.removeFromSuperview()
         }
         cell.awakeFromNib()
+        cell.name.text = users[indexPath[1]].firstName
         return cell
     }
     
