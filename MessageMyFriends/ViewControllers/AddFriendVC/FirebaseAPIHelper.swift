@@ -108,7 +108,7 @@ class FirebaseAPIHelper {
         var friendFavs: [String] = []
         let ref = Database.database().reference()
         let userRef = ref.child("users")
-        userRef.observe(.value, with: { (snapshot) in
+        userRef.observeSingleEvent(of: .value, with: { (snapshot) in
             for user in snapshot.children {
                 let newUser = user as! DataSnapshot
                 let dict = newUser.value as! [String:Any]
@@ -119,11 +119,11 @@ class FirebaseAPIHelper {
                     friendFavs = dict["friends"] as! [String]
                 }
             }
+            userFavs.append(friendID)
+            friendFavs.append(userID)
+            ref.child("users").child(userID).updateChildValues(["friends": userFavs])
+            ref.child("users").child(friendID).updateChildValues(["friends": friendFavs])
         })
-        userFavs.append(friendID)
-        friendFavs.append(userID)
-        ref.child("users").child(userID).updateChildValues(["friends": userFavs])
-        ref.child("users").child(friendID).updateChildValues(["friends": friendFavs])
     }
     
     static func getFriends(userID: String, completion: @escaping (User) -> ()) {
@@ -148,7 +148,7 @@ class FirebaseAPIHelper {
                         toReturn.firstName = dict2["firstName"] as? String
                         toReturn.lastName = dict2["lastName"] as? String
                         toReturn.subtitle = dict2["time"] as? String
-                        print(toReturn.subtitle)
+                        //print(toReturn.subtitle)
                         if let latitude = dict2["latitude"] as? Double {
                             if let longitude = dict2["longitude"] as? Double {
                                 toReturn.coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)

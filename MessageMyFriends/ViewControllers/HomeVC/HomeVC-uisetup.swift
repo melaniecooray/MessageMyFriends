@@ -31,7 +31,7 @@ extension HomeVC {
     }
     
     func setupTable() {
-        tableView = UITableView(frame: CGRect(x: 0, y: mapView.frame.maxY + 15, width: view.frame.width, height: 300))
+        tableView = UITableView(frame: CGRect(x: 0, y: mapView.frame.maxY, width: view.frame.width, height: 300))
         tableView.register(UserCell.self, forCellReuseIdentifier: "FriendList")
         tableView.dataSource = self
         tableView.delegate = self

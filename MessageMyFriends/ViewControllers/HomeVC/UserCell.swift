@@ -16,11 +16,11 @@ class UserCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        name = UILabel(frame: CGRect(x: 20, y: 0, width: contentView.frame.width, height: contentView.frame.height))
+        name = UILabel(frame: CGRect(x: 20, y: 0, width: 200, height: contentView.frame.height))
         name.font = UIFont(name: "Avenir-Light", size: 15)
         contentView.addSubview(name)
         
-        status = UILabel(frame: CGRect(x: 90, y: 0, width: contentView.frame.width, height: contentView.frame.height))
+        status = UILabel(frame: CGRect(x: 300, y: 20, width: 100, height: contentView.frame.height))
         status.font = UIFont(name: "Avenir-Light", size: 15)
         contentView.addSubview(name)
         
