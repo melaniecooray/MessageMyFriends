@@ -15,8 +15,7 @@ class Message: Comparable {
     var senderID: String!
     var msg: String!
     
-    init(msgID: String, message: String, user: String){
-        self.id = msgID
+    init(message: String, user: String){
         self.msg = message
         self.senderID = user
         self.timeSent = Date()

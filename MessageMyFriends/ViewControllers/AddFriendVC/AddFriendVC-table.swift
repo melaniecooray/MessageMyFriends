@@ -25,7 +25,7 @@ extension AddFriendVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectedFriend = users[indexPath[1]]
-        if selectedFriend.email == UserDefaults.standard.string(forKey: "email") {
+        if selectedFriend.userID == UserDefaults.standard.string(forKey: "userID") {
             showError(title: "Invalid User:", message: "Can't select yourself")
             tableView.deselectRow(at: indexPath, animated: true)
             return

@@ -53,13 +53,14 @@ class HomeVC: UIViewController {
     }
     
     func checkUser() {
-        user.title = user.firstName + " " + user.lastName
         if user.email == nil || user.firstName == nil || user.lastName == nil {
             validUser = false
             print("found nil")
             //performSegue(withIdentifier: "Config", sender: self)
             performSegue(withIdentifier: "toConfig", sender: self)
             print("performed segue")
+        } else {
+            user.title = user.firstName + " " + user.lastName
         }
     }
     

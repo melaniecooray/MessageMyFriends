@@ -48,7 +48,7 @@ extension ChatVC: UITableViewDelegate, UITableViewDataSource {
         cell.selectionStyle = .none
         
         let currentMessage = self.messages.sorted()[indexPath.row]
-        cell.initializeCellFrom(msg: currentMessage, outbound: currentMessage.senderID == self.user.userID, size: CGSize(width: view.frame.width, height: heightComputer(indexPath: indexPath)))
+        cell.initializeCellFrom(msg: currentMessage, outbound: currentMessage.senderID == self.user1.userID, size: CGSize(width: view.frame.width, height: heightComputer(indexPath: indexPath)))
         
         cell.contentView.transform = CGAffineTransform(scaleX: 1, y: -1)
         return cell

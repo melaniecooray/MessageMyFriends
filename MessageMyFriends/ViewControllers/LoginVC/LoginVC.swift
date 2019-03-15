@@ -27,6 +27,7 @@ class LoginVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.navigationBar.isHidden = true
         Auth.auth().addStateDidChangeListener { (auth, user) in
             if let user = user {
                 FirebaseAPIHelper.getUserData(userID: UserDefaults.standard.string(forKey: "userID")!) {user in

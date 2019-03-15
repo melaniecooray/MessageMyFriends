@@ -13,23 +13,24 @@ import MapKit
 
 class FirebaseAPIHelper {
     
-    static func signInUser(email: String) {
+    static func signInUser(email: String, completion: @escaping () -> ()) {
         print("adding to firebase")
         var found = 0
         let ref = Database.database().reference()
         let userRef = ref.child("users")
-        userRef.observe(.value, with: { (snapshot) in
+        userRef.observeSingleEvent(of: .value, with: { (snapshot) in
             for user in snapshot.children {
                 let newUser = user as! DataSnapshot
                 let dict = newUser.value as! [String:Any]
                 let observedEmail = dict["email"] as! String
                 if observedEmail == email {
                     found += 1
+                    UserDefaults.standard.set(dict["userID"] as! String, forKey: "userID")
                 }
             }
-            
         })
         if (found == 0) {
+            print("did not find")
             let userID = userRef.childByAutoId().key
             UserDefaults.standard.set(userID, forKey: "userID")
             ref.child("users").child(userID!).setValue(["userID": userID, "email": email, "friends": [userID]])
@@ -47,11 +48,16 @@ class FirebaseAPIHelper {
                 let dict = newUser.value as! [String:Any]
                 let observedUID = dict["userID"] as! String
                 print(observedUID)
-                print(userID)
-                if observedUID == userID {
+                let newuserID = UserDefaults.standard.string(forKey: "userID")
+                print(newuserID!)
+                if observedUID == newuserID! {
                     toReturn = User(email: dict["email"] as! String, userID: dict["userID"] as! String)
-                    toReturn?.firstName = dict["firstName"] as! String
-                    toReturn?.lastName = dict["lastName"] as! String
+                    if let firstName = dict["firstName"] as? String {
+                        if let lastName = dict["lastName"] as? String {
+                            toReturn?.firstName = firstName
+                            toReturn?.lastName = lastName
+                        }
+                    }
                     if let latitude = dict["latitude"] as? Double {
                         if let longitude = dict["longitude"] as? Double {
                             toReturn?.coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
@@ -142,9 +148,12 @@ class FirebaseAPIHelper {
                         toReturn.firstName = dict2["firstName"] as? String
                         toReturn.lastName = dict2["lastName"] as? String
                         toReturn.subtitle = dict2["time"] as? String
-                        let latitude = dict2["latitude"] as! Double
-                        let longitude = dict2["longitude"] as! Double
-                        toReturn.coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+                        print(toReturn.subtitle)
+                        if let latitude = dict2["latitude"] as? Double {
+                            if let longitude = dict2["longitude"] as? Double {
+                                toReturn.coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+                            }
+                        }
                         completion(toReturn)
                         //toReturn.coordinate = CLLocationCoordinate2D(latitude: dict["latitude"] as! CLLocationDegrees, longitude: dict["longitude"] as! CLLocationDegrees)
                         returnFriends.append(toReturn)

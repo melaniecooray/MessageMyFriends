@@ -27,7 +27,7 @@ extension LoginVC {
     }
     
     func setupEmail() {
-        email = UITextField(frame: CGRect(x: 0, y: 0, width: view.frame.width/2, height: 50))
+        email = UITextField(frame: CGRect(x: 0, y: 0, width: view.frame.width/2 + 150, height: 50))
         email.center = CGPoint(x: view.frame.width/2, y: view.frame.height/2)
         email.placeholder = "Email"
         email.textColor = .black

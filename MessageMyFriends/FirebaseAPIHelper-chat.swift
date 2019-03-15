@@ -23,19 +23,29 @@ extension FirebaseAPIHelper {
                 let dict = newUser.value as! [String:Any]
                 let user1 = dict["user1"] as! String
                 let user2 = dict["user2"] as! String
-                if (user1 == user1ID  || user1 == user2ID) && (user2 == user1ID || user2 == user2ID){
+                if ((user1 == user1ID)  && (user2 == user2ID)) || ((user2 == user1ID) && (user1 == user2ID)){
                     found += 1
                     toReturn = Chat(id: dict["chatID"] as! String, user1: dict["user1"] as! String, user2: dict["user2"] as! String)
+                    var messages : [Message] = []
+                    chatRef.child(dict["chatID"] as! String).child("messages").observeSingleEvent(of: .value, with: { (snapshot) in
+                        for user in snapshot.children {
+                            let newUser = user as! DataSnapshot
+                            let dict = newUser.value as! [String:Any]
+                            let newMessage = Message(message: dict["message"] as! String, user: dict["sender"] as! String)
+                            messages.append(newMessage)
+                        }
+                        toReturn?.msgs = messages
+                        
+                    })
                 }
             }
-            
+            if (found == 0) {
+                let chatID = chatRef.childByAutoId().key
+                ref.child("chats").child(chatID!).setValue(["chatID": chatID, "user1": user1ID, "user2": user2ID])
+                toReturn = Chat(id: chatID!, user1: user1ID, user2: user2ID)
+            }
+            completion(toReturn!)
         })
-        if (found == 0) {
-            let chatID = chatRef.childByAutoId().key
-            ref.child("chats").child(chatID!).setValue(["chatID": chatID, "user1": user1ID, "user2": user2ID])
-            toReturn = Chat(id: chatID!, user1: user1ID, user2: user2ID)
-        }
-        completion(toReturn!)
     }
     
     static func listenForChats(chatID: String, onNewMessage: @escaping (Message) -> () ) {
@@ -44,8 +54,9 @@ extension FirebaseAPIHelper {
                 return
             }
             
-            onNewMessage(Message(msgID: data["messageID"] as! String, message: data["message"] as! String, user: data["sender"] as! String))
-            
+            let toReturn = Message(message: data["message"] as! String, user: data["sender"] as! String)
+            toReturn.id = data["messageID"] as! String
+            onNewMessage(toReturn)
         }
     }
     
@@ -55,5 +66,6 @@ extension FirebaseAPIHelper {
         let msgRef = chatRef.child(chatID).child("messages")
         let msgID = msgRef.childByAutoId().key
         msgRef.child(msgID!).setValue(["messageID": msg.id, "message": msg.msg, "sender": msg.senderID])
+        //var message = Message(msgID: msgID, message: msg.msg, user: <#T##String#>)
     }
 }

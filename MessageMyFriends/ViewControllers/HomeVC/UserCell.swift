@@ -20,7 +20,7 @@ class UserCell: UITableViewCell {
         name.font = UIFont(name: "Avenir-Light", size: 15)
         contentView.addSubview(name)
         
-        status = UILabel(frame: CGRect(x: 90, y: 20, width: contentView.frame.width, height: contentView.frame.height))
+        status = UILabel(frame: CGRect(x: 90, y: 0, width: contentView.frame.width, height: contentView.frame.height))
         status.font = UIFont(name: "Avenir-Light", size: 15)
         contentView.addSubview(name)
         

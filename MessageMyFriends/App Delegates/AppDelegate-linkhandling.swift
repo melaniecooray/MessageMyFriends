@@ -54,10 +54,10 @@ extension AppDelegate {
                 
                 print("signed user in")
                 
-                FirebaseAPIHelper.signInUser(email: email)
-                
-                (self.window?.rootViewController as? UINavigationController)?.popToRootViewController(animated: false)
-                self.window?.rootViewController?.children[0].performSegue(withIdentifier: "toHomeVCFromLaunch", sender: nil)
+                FirebaseAPIHelper.signInUser(email: email) {
+                    (self.window?.rootViewController as? UINavigationController)?.popToRootViewController(animated: false)
+                    self.window?.rootViewController?.children[0].performSegue(withIdentifier: "toHomeVCFromLaunch", sender: nil)
+                }
             }
             return true
         }

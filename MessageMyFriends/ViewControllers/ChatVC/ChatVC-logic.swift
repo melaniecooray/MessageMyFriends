@@ -24,12 +24,12 @@ extension ChatVC {
             return
         }
         
-        let textMessage = Message(message: msg, user: self.user)
+        let textMessage = Message(message: msg, user: self.user1.userID)
         messages.append(textMessage)
         
-        //FirebaseAPI.send(msg: textMessage) {
-        //    debugPrint("messageSent")
-        //}
+        FirebaseAPIHelper.send(chatID: chat.id, msg: textMessage) {
+            debugPrint("messageSent")
+        }
         
         
         addMessage()
